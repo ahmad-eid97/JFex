@@ -1,13 +1,20 @@
 <template>
   <div class="banner">
     <span class="layer"></span>
+    <img :src="banner.find(one => one.key === 'banner_image').value" alt="">
     <div class="content">
-      <h1>JORDAN FINANCIAL EXPO & AWARD JFEX 2023</h1>
-      <span>5th-6th September , 2023| | Amman - Jordan</span>
-      <p>FOREX | FINTECH | CRYPTOCURRENCY</p>
+      <h1>{{ banner.find(one => one.key === 'banner_title').value }}</h1>
+      <span>{{ banner.find(one => one.key === 'banner_sub_title').value }}</span>
+      <p>{{ banner.find(one => one.key === 'banner_description').value }}</p>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["banner"]
+}
+</script>
 
 <style scoped lang="scss">
 .banner {
@@ -20,7 +27,16 @@
     width: 100%;
     height: 100%;
     background-color: var(--main-color);
-    opacity: 0.3;
+    opacity: 0.1;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .content {

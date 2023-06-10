@@ -7,7 +7,7 @@
             :src="`https://maps.google.com/maps?q='+${$store.state.websiteSettings.find(one => one.key === 'latitude').plain_value}+','+${$store.state.websiteSettings.find(one => one.key === 'longitude').plain_value}+'&hl=es&z=14&amp;output=embed`"></iframe>
         </div>
         <div class="col-lg-4">
-          <div class="contact-info mr-20">
+          <div class="contact-info">
             <span>Contact Info</span>
             <h2>Let's Connect With Us</h2>
             <p>

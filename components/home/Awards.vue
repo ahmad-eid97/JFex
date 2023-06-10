@@ -53,6 +53,7 @@
 
     img {
       height: 500px;
+      width: 100%;
 
       @include xs {
         object-fit: contain;

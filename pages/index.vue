@@ -3,11 +3,11 @@
     <!-- Slick Section Start -->
     <!-- <app-home-slider :slides="slides"></app-home-slider> -->
 
-    <Banner />
+    <Banner :banner="banner" />
 
     <app-home-partners :partners="partners" />
 
-    <Benefits />
+    <Benefits :benefits="benefits" />
 
     <Future />
 
@@ -21,7 +21,7 @@
       <app-home-feature :features="features.data"></app-home-feature>
     </div>
 
-    <Sponsors />
+    <Sponsors :sponsors="sponsors" />
 
     <Contact />
 
@@ -165,15 +165,18 @@ export default {
     Future,
     Banner
   },
-  mounted() {
-    console.log(this.$store.state.sectionsStatus);
-  },
   async asyncData({ $axios, app }) {
-    const slides = await $axios.get("/sliders", {
+    const banner = await $axios.get("/sections/banner", {
       headers: {
         "Accept-Language": app.i18n.locale,
       },
     });
+
+    // const slides = await $axios.get("/sliders", {
+    //   headers: {
+    //     "Accept-Language": app.i18n.locale,
+    //   },
+    // });
 
     const partners = await $axios.get("/partners");
 
@@ -183,40 +186,56 @@ export default {
       },
     });
 
-    const bannerTop = await $axios.get("/sections/banner-top", {
+    const benefits = await $axios.get("/sections/benefits", {
       headers: {
         "Accept-Language": app.i18n.locale,
       },
     });
 
-    const services = await $axios.get("/services");
+    const sponsors = await $axios.get('/sections/sponsors',
+      {
+        headers: {
+          "Accept-Language": app.i18n.locale,
+        },
+      })
 
-    const testimonials = await $axios.get("/testimonials");
+    // const bannerTop = await $axios.get("/sections/banner-top", {
+    //   headers: {
+    //     "Accept-Language": app.i18n.locale,
+    //   },
+    // });
 
-    const blogs = await $axios.get("/blogs?latest=1");
+    // const services = await $axios.get("/services");
 
-    const activities = await $axios.get("/sections/activities", {
-      headers: {
-        "Accept-Language": app.i18n.locale,
-      },
-    });
+    // const testimonials = await $axios.get("/testimonials");
 
-    const steps = await $axios.get("/sections/steps", {
-      headers: {
-        "Accept-Language": app.i18n.locale,
-      },
-    });
+    // const blogs = await $axios.get("/blogs?latest=1");
+
+    // const activities = await $axios.get("/sections/activities", {
+    //   headers: {
+    //     "Accept-Language": app.i18n.locale,
+    //   },
+    // });
+
+    // const steps = await $axios.get("/sections/steps", {
+    //   headers: {
+    //     "Accept-Language": app.i18n.locale,
+    //   },
+    // });
 
     return {
-      slides: slides.data.data.sliders,
+      // slides: slides.data.data.sliders,
+      banner: banner.data.data,
       partners: partners.data.data.partners,
       features: features.data,
-      bannerTop: bannerTop.data,
-      services: services.data.data.services,
-      testimonials: testimonials.data.data.testimonials,
-      blogs: blogs.data.data.blogs.slice(0, 5),
-      activities: activities.data,
-      steps: steps.data,
+      benefits: benefits.data.data.find(one => one.key === 'benefits_list').value,
+      sponsors: sponsors.data.data.find(one => one.key === 'sponsors_list' || one.key === 'قائمة الرعاة').value
+      // bannerTop: bannerTop.data,
+      // services: services.data.data.services,
+      // testimonials: testimonials.data.data.testimonials,
+      // blogs: blogs.data.data.blogs.slice(0, 5),
+      // activities: activities.data,
+      // steps: steps.data,
     };
   },
   mounted() { },

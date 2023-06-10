@@ -2,84 +2,12 @@
   <div class="container">
     <div class="speakers">
       <div class="row justify-content-center">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" v-for="speaker in speakers" :key="speaker.id">
           <div class="item">
-            <img src="/assets/images/blog-img2.jpg" alt="speaker">
+            <img :src="speaker.link" alt="speaker">
             <div class="content">
-              <h4>Speaker number one</h4>
-              <p>Full Stack Developer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="item">
-            <img src="/assets/images/blog-img2.jpg" alt="speaker">
-            <div class="content">
-              <h4>Speaker number one</h4>
-              <p>Full Stack Developer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="item">
-            <img src="/assets/images/blog-img2.jpg" alt="speaker">
-            <div class="content">
-              <h4>Speaker number one</h4>
-              <p>Full Stack Developer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="item">
-            <img src="/assets/images/blog-img2.jpg" alt="speaker">
-            <div class="content">
-              <h4>Speaker number one</h4>
-              <p>Full Stack Developer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="item">
-            <img src="/assets/images/blog-img2.jpg" alt="speaker">
-            <div class="content">
-              <h4>Speaker number one</h4>
-              <p>Full Stack Developer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="item">
-            <img src="/assets/images/blog-img2.jpg" alt="speaker">
-            <div class="content">
-              <h4>Speaker number one</h4>
-              <p>Full Stack Developer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="item">
-            <img src="/assets/images/blog-img2.jpg" alt="speaker">
-            <div class="content">
-              <h4>Speaker number one</h4>
-              <p>Full Stack Developer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="item">
-            <img src="/assets/images/blog-img2.jpg" alt="speaker">
-            <div class="content">
-              <h4>Speaker number one</h4>
-              <p>Full Stack Developer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="item">
-            <img src="/assets/images/blog-img2.jpg" alt="speaker">
-            <div class="content">
-              <h4>Speaker number one</h4>
-              <p>Full Stack Developer</p>
+              <h4>{{ speaker.title }}</h4>
+              <p>{{ speaker.description }}</p>
             </div>
           </div>
         </div>
@@ -97,7 +25,8 @@
 
     img {
       width: 100%;
-      height: 250px;
+      height: 300px;
+      border-radius: 10px;
     }
 
     .content {
@@ -123,3 +52,9 @@
   }
 }
 </style>
+
+<script>
+export default {
+  props: ['speakers'],
+}
+</script>

@@ -1,15 +1,11 @@
 <template>
   <div>
     <SpeakersHeading />
-    <SpeakersList />
+    <SpeakersList :speakers="speakers" />
   </div>
 </template>
 
-<style scoped lang="scss"></style>
-
-
 <script>
-SpeakersHeading
 import SpeakersHeading from '../../components/speakers/SpeakersHeading.vue';
 import SpeakersList from '../../components/speakers/SpeakersList.vue';
 
@@ -18,9 +14,17 @@ export default {
     SpeakersHeading,
     SpeakersList
   },
-  data() {
+  async asyncData({ $axios, app }) {
+    const SPEAKERS = await $axios.get('/sections/speakers',
+      {
+        headers: {
+          "Accept-Language": app.i18n.locale,
+        },
+      })
+
     return {
-    };
+      speakers: SPEAKERS.data.data.find(one => one.key === 'speakers_list' || one.key === 'قائمة_المتحدثين').value
+    }
   },
   methods: {
   },

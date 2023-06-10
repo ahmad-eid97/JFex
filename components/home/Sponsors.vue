@@ -3,25 +3,15 @@
     <div class="container">
       <h3>Our Prestigues Sponsors</h3>
       <div class="list">
-        <div class="sponsor">
-          <h5>Elite Sponsor</h5>
-          <img src="/assets/images/noImage.png" alt="sponsor">
-        </div>
-        <div class="sponsor">
-          <h5>Elite Sponsor</h5>
-          <img src="/assets/images/noImage.png" alt="sponsor">
-        </div>
-        <div class="sponsor">
-          <h5>Elite Sponsor</h5>
-          <img src="/assets/images/noImage.png" alt="sponsor">
-        </div>
-        <div class="sponsor">
-          <h5>Elite Sponsor</h5>
-          <img src="/assets/images/noImage.png" alt="sponsor">
+        <div class="sponsor" v-for="sponsor in sponsors" :key="sponsor.id">
+          <a :href="sponsor.link">
+            <img :src="sponsor.icon" alt="sponsor">
+            <h5>{{ sponsor.title }}</h5>
+          </a>
         </div>
       </div>
 
-      <div class="partners">
+      <!-- <div class="partners">
         <h3>Media Partners</h3>
         <div class="list">
           <div class="sponsor">
@@ -41,10 +31,19 @@
             <img src="/assets/images/noImage.png" alt="sponsor">
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ['sponsors'],
+  mounted() {
+    console.log(this.sponsors)
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .sponsors {

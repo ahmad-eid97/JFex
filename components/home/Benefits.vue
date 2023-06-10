@@ -7,66 +7,12 @@
         sessions are as interactive and interesting as possible</p>
       <div class="list">
         <div class="row">
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3" v-for="benefit in benefits" :key="benefit.id">
             <div class="single">
               <i class="fa-solid fa-exclamation"></i>
               <div class="details">
-                <h4>Discovering</h4>
-                <p>the impacts on all departments that this change brings</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="single">
-              <i class="fa-solid fa-exclamation"></i>
-              <div class="details">
-                <h4>Discovering</h4>
-                <p>the impacts on all departments that this change brings</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="single">
-              <i class="fa-solid fa-exclamation"></i>
-              <div class="details">
-                <h4>Discovering</h4>
-                <p>the impacts on all departments that this change brings</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="single">
-              <i class="fa-solid fa-exclamation"></i>
-              <div class="details">
-                <h4>Discovering</h4>
-                <p>the impacts on all departments that this change brings</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="single">
-              <i class="fa-solid fa-exclamation"></i>
-              <div class="details">
-                <h4>Discovering</h4>
-                <p>the impacts on all departments that this change brings</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="single">
-              <i class="fa-solid fa-exclamation"></i>
-              <div class="details">
-                <h4>Discovering</h4>
-                <p>the impacts on all departments that this change brings</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="single">
-              <i class="fa-solid fa-exclamation"></i>
-              <div class="details">
-                <h4>Discovering</h4>
-                <p>the impacts on all departments that this change brings</p>
+                <h4>{{ benefit.title }}</h4>
+                <p>{{ benefit.description }}</p>
               </div>
             </div>
           </div>
@@ -75,6 +21,12 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ['benefits']
+}
+</script>
 
 <style lang="scss" scoped>
 .benefits {
