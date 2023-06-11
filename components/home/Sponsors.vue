@@ -1,9 +1,9 @@
 <template>
   <div class="sponsors">
     <div class="container">
-      <h3>Our Prestigues Sponsors</h3>
+      <h3>{{ sponsors.find(one => one.key === 'sponsors_title').value }}</h3>
       <div class="list">
-        <div class="sponsor" v-for="sponsor in sponsors" :key="sponsor.id">
+        <div class="sponsor" v-for="sponsor in sponsors.find(one => one.key === 'sponsors_list').value" :key="sponsor.id">
           <a :href="sponsor.link">
             <img :src="sponsor.icon" alt="sponsor">
             <h5>{{ sponsor.title }}</h5>

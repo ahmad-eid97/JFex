@@ -9,22 +9,12 @@
       <div class="banner">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <img src="/assets/images/award.jpeg" alt="">
+            <img :src="awards.find(one => one.key === 'awards_image').value" alt="">
           </div>
           <div class="col-md-6">
             <div class="content">
-              <h3>JFI Awards</h3>
-              <p>ordan Financial Innovation Awards ( JFI Awards ) aim to celebrate all that is entrepreneur and innovative
-                within the leading brands in the online trading(FX), fintech, banking, digital assets, blockchain, and
-                payments
-                sphere and we would encourage you to browse through the rest of the awards site and see where the
-                excellence
-                in
-                your organization can become a nomination in the awards process. ‘Old hands’ and new entrants have equal
-                chances
-                to write a new chapter in the story of the Entrepreneur JFI Awards by nominating those projects which are
-                new
-                and exciting in the financial services.</p>
+              <h3>{{ awards.find(one => one.key === 'awards_title').value }}</h3>
+              <p>{{ awards.find(one => one.key === 'awards_description').value }}</p>
             </div>
           </div>
         </div>
@@ -32,6 +22,12 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["awards"]
+}
+</script>
 
 <style scoped lang="scss">
 .award {

@@ -3,21 +3,21 @@
     <div class="gallery">
       <h2>Our Awesome Gallery</h2>
       <ul class="blog-gallery">
-        <!-- <li v-for="(image, index) in gallery.slice(0, 6)" :key="index" style="display: inline-block; margin: 0 5px 5px 0">
-        <a @click="openGallery(index)">
-          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-          <img :src="image" alt="image" />
-        </a>
-      </li> -->
-        <li v-for="(image, index) in media" :key="index" style="display: inline-block; margin: 0 5px 5px 0">
+        <li v-for="(image, index) in gallery.slice(0, 6)" :key="index" style="display: inline-block; margin: 0 5px 5px 0">
+          <a @click="openGallery(index)">
+            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+            <img :src="image" alt="image" />
+          </a>
+        </li>
+        <!-- <li v-for="(image, index) in media" :key="index" style="display: inline-block; margin: 0 5px 5px 0">
           <a @click="openGallery(index)">
             <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
             <span class="layer"></span>
             <img :src="image" alt="image" />
           </a>
-        </li>
+        </li> -->
       </ul>
-      <CoolLightBox :items="media.map((one) => (one ? one : ''))" :index="imageIndex" @close="imageIndex = null" />
+      <CoolLightBox :items="gallery.map((one) => (one ? one : ''))" :index="imageIndex" @close="imageIndex = null" />
     </div>
   </div>
 </template>

@@ -74,6 +74,10 @@ export default {
   width: auto;
   display: inline;
   max-width: 100%;
+  background-color: #fff;
+  border-radius: 50%;
+  object-fit: contain;
+  padding: 10px;
   /* height: auto; */
 }
 

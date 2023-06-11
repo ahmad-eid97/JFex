@@ -4,25 +4,12 @@
     <h1>All Popular Listed products</h1>
 
     <div class="row justify-content-center">
-      <div
-        v-for="product in allProducts.products"
-        :key="product"
-        class="col-md-6 col-lg-4 col-xl-3 mb-4"
-      >
+      <div v-for="product in allProducts.products" :key="product" class="col-md-6 col-lg-4 col-xl-3 mb-4">
         <div class="job">
-          <span
-            v-if="product.category"
-            class="category"
-            :style="{ backgroundColor: random_rgba() }"
-            @click="$router.push(`/product-category/${product.category.id}`)"
-            >{{ product.category.name }}</span
-          >
-          <img
-            v-if="product.images"
-            :src="product.images[0]"
-            alt="jobImage"
-            @click="$router.push(localePath(`/product/${product.id}`))"
-          />
+          <span v-if="product.category" class="category" :style="{ backgroundColor: random_rgba() }"
+            @click="$router.push(`/product-category/${product.category.id}`)">{{ product.category.name }}</span>
+          <img v-if="product.images" :src="product.images[0]" alt="jobImage"
+            @click="$router.push(localePath(`/product/${product.id}`))" />
           <h3 @click="$router.push(localePath(`/product/${product.id}`))">
             {{ product.title.substring(0, 50) }}
             {{ product.title.length > 50 ? "..." : "" }}
@@ -40,13 +27,8 @@
 
       <div class="col-lg-12 col-md-12 text-center">
         <div class="pagination-area">
-          <b-pagination
-            v-model="allProducts.meta.current_page"
-            :total-rows="allProducts.meta.total"
-            :per-page="allProducts.meta.per_page"
-            aria-controls="my-table"
-            @change="changePage"
-          ></b-pagination>
+          <b-pagination v-model="allProducts.meta.current_page" :total-rows="allProducts.meta.total"
+            :per-page="allProducts.meta.per_page" aria-controls="my-table" @change="changePage"></b-pagination>
         </div>
       </div>
     </div>
@@ -114,13 +96,16 @@ export default {
 <style scoped lang="scss">
 .jobsListed {
   margin-top: 100px;
+
   h6,
   h1 {
     text-align: center;
   }
+
   h1 {
     margin-bottom: 50px;
   }
+
   .job {
     background: #f0f0f0;
     border: 1px solid #e5e6e7;
@@ -133,6 +118,7 @@ export default {
     margin-bottom: 20px;
     height: 100%;
     overflow: hidden;
+
     .category {
       position: absolute;
       top: 10px;
@@ -141,6 +127,7 @@ export default {
       border-radius: 5px;
       cursor: pointer;
     }
+
     img {
       width: 100%;
       height: 150px;
@@ -148,28 +135,34 @@ export default {
       margin-bottom: 10px;
       cursor: pointer;
     }
+
     h3 {
       cursor: pointer;
       text-align: center;
       font-size: 20px;
     }
+
     .price {
       display: flex;
       align-items: center;
       gap: 10px;
+
       p {
         font-size: 1.3rem;
         opacity: 0.7;
         margin: 0;
+
         &:not(.pre) {
           color: var(--main-color);
           font-weight: bold;
         }
+
         &.pre {
           text-decoration: line-through;
         }
       }
     }
+
     .addToCart {
       position: absolute;
       bottom: 0;
@@ -179,6 +172,7 @@ export default {
       align-items: center;
       animation: all 0.3s ease-in-out;
       cursor: pointer;
+
       .text {
         background-color: #fff;
         padding: 5px 20px;
@@ -188,6 +182,7 @@ export default {
         z-index: 1;
         font-size: 1.1rem;
       }
+
       i {
         color: var(--main-color);
         background-color: #fff;
@@ -196,13 +191,16 @@ export default {
         z-index: 2;
         font-size: 1.1rem;
       }
+
       &.arabic {
         right: unset;
         left: 0;
+
         .text {
           transform: translateX(-100px);
         }
       }
+
       &:hover {
         .text {
           transform: translateX(0px);
@@ -211,10 +209,12 @@ export default {
       }
     }
   }
+
   .btn {
     display: grid;
     place-content: center;
     border: none;
+
     button {
       background-color: var(--main-color);
       color: #fff;
@@ -222,6 +222,7 @@ export default {
       border: 1px solid var(--main-color);
       border-radius: 20px;
       outline: none;
+
       &:hover {
         background-color: transparent;
         color: var(--main-color);

@@ -4,12 +4,8 @@
     <h1>Browse Top Categories</h1>
 
     <div class="row justify-content-center">
-      <div
-        v-for="category in productsCategories"
-        :key="category"
-        class="col-md-4 col-lg-3 col-xl-2 mb-4"
-        @click="$router.push(`/product-category/${category.id}`)"
-      >
+      <div v-for="category in productsCategories" :key="category" class="col-md-4 col-lg-3 col-xl-2 mb-4"
+        @click="$router.push(`/product-category/${category.id}`)">
         <div class="category" :style="{ backgroundColor: random_rgba() }">
           <!-- <i :class="category.icon"></i> -->
           <h5>{{ category.name }}</h5>
@@ -50,13 +46,16 @@ export default {
 <style scoped lang="scss">
 .categories {
   margin-top: 100px;
+
   h6,
   h1 {
     text-align: center;
   }
+
   h1 {
     margin-bottom: 50px;
   }
+
   .category {
     background-color: #f0efef;
     padding: 40px 20px 20px;
@@ -68,6 +67,7 @@ export default {
     position: relative;
     margin-bottom: 20px;
     height: 100%;
+
     i {
       width: 60px;
       height: 60px;
@@ -78,15 +78,18 @@ export default {
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
+
     h5 {
       text-align: center;
       cursor: pointer;
     }
   }
+
   .btn {
     display: grid;
     place-content: center;
     border: none;
+
     button {
       background-color: var(--main-color);
       color: #fff;
@@ -94,11 +97,11 @@ export default {
       border: 1px solid var(--main-color);
       border-radius: 20px;
       outline: none;
+
       &:hover {
         background-color: transparent;
         color: var(--main-color);
       }
     }
   }
-}
-</style>
+}</style>

@@ -9,13 +9,13 @@
 
     <Benefits :benefits="benefits" />
 
-    <Future />
+    <Future :future="future" />
 
     <!-- <div v-if="$store.state.sectionsStatus.features">
       <app-home-blogs :blogs="blogs.slice(0, 1)" :features="features.data" :testimonials="testimonials"></app-home-blogs>
     </div> -->
 
-    <Awards />
+    <Awards :awards="awards" />
 
     <div v-if="$store.state.sectionsStatus.features">
       <app-home-feature :features="features.data"></app-home-feature>
@@ -180,13 +180,25 @@ export default {
 
     const partners = await $axios.get("/partners");
 
-    const features = await $axios.get("/sections/features", {
+    const benefits = await $axios.get("/sections/benefits", {
       headers: {
         "Accept-Language": app.i18n.locale,
       },
     });
 
-    const benefits = await $axios.get("/sections/benefits", {
+    const future = await $axios.get("/sections/future", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
+
+    const awards = await $axios.get("/sections/awards", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
+
+    const features = await $axios.get("/sections/features", {
       headers: {
         "Accept-Language": app.i18n.locale,
       },
@@ -227,9 +239,11 @@ export default {
       // slides: slides.data.data.sliders,
       banner: banner.data.data,
       partners: partners.data.data.partners,
+      benefits: benefits.data.data,
+      future: future.data.data,
+      awards: awards.data.data,
       features: features.data,
-      benefits: benefits.data.data.find(one => one.key === 'benefits_list').value,
-      sponsors: sponsors.data.data.find(one => one.key === 'sponsors_list' || one.key === 'قائمة الرعاة').value
+      sponsors: sponsors.data.data
       // bannerTop: bannerTop.data,
       // services: services.data.data.services,
       // testimonials: testimonials.data.data.testimonials,

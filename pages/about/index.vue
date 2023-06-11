@@ -61,12 +61,6 @@ export default {
       }
     });
 
-    const GALLERY = await $axios.get('/galleries', {
-      headers: {
-        "Accept-Language": app.i18n.locale
-      }
-    });
-
     // console.log(GALLERY.data)
 
     // const COUNTER_SECTION = await $axios.get('/sections/counter_success', {
@@ -83,7 +77,7 @@ export default {
       aboutSection: ABOUT_SECTION.data.data,
       experienceSection: EXPERIENCE_SECTION.data.data,
       whySection: WHY_SECTION.data.data,
-      gallery: GALLERY.data.data.galleries
+      gallery: ABOUT_SECTION.data.data.find(one => one.key === 'about_galleries').value.split(',')
       // counterSection: COUNTER_SECTION.data.data,
       // servicesSection: SERVICES_SECTION.data.data.services,
       // partners: PARTNERS.data.data

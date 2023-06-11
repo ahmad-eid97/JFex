@@ -4,19 +4,16 @@
       <div class="banner">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <img src="/assets/images/future.jpg" alt="">
+            <img :src="future.find(one => one.key === 'future_image').value" alt="">
           </div>
           <div class="col-md-6">
             <div class="content">
-              <h3>WHERE THE PAST EMBRACES THE FUTURE
-                <br>
-                a chance to :
+              <h3>
+                {{ future.find(one => one.key === 'future_title').value }}
               </h3>
-              <p><span>DISCOVER</span>: Jordan, drenched in history and home to some of the world’s earliest settlements
-              </p>
-              <p><span>MEET</span>: renowned leaders from the global financial markets
-              </p>
-              <p><span>LEARN</span>: about the ever-increasing financial markets, as interesting as they are volatile
+              <p v-for="item in future.find(one => one.key === 'future_list').value" :key="item.title">
+                <span>{{ item.title }}</span>
+                : {{ item.description }}
               </p>
             </div>
           </div>
@@ -26,13 +23,20 @@
   </div>
 </template>
 
+<script>
+export default {
+  props: ['future'],
+}
+</script>
+
 <style scoped lang="scss">
 .furture {
-  padding-bottom: 80px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 80px 0;
+  background-color: #f3f2f2;
 
   .banner {
-    margin-top: 50px;
-
     img {
       height: 500px;
 

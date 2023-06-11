@@ -1,15 +1,5 @@
 <template>
   <header class="header header-style-2 clearfix">
-    <!-- CART SIDEBAR -->
-    <!-- <div class="cart" :class="openCart ? 'opened' : ''">
-      <div class="head">
-        <i class="fa-regular fa-xmark" @click="openCart = false"></i>
-        <button @click="goToCheckout" :disabled="$store.state.cartItems.length <= 0">
-          <i class="fa-regular fa-badge-check"></i> Checkout
-        </button>
-      </div>
-      <cart />
-    </div> -->
 
     <app-top-bar></app-top-bar>
     <app-mid-bar></app-mid-bar>
@@ -18,15 +8,6 @@
       <div class="main-navigation main-mega-menu animated">
         <nav :class="{ onScroll: !topOfPage }" class="navbar navbar-expand-lg navbar-light">
           <div class="container header_container d-flex align-items-center justify-content-between">
-            <!-- Application Name -->
-            <!-- <div class="logo-box">
-              <a :href="localePath('/')">
-                {{
-                  $store.state.websiteSettings.find(
-                    (one) => one.key === "application_name"
-                  ).plain_value
-                }}</a>
-            </div> -->
             <div class="logo">
               <a :href="localePath('/')" class="navbar-brand justify-content-end pc-menu">
                 <img id="logo_img" :src="$store.state.websiteSettings.find((one) => one.key === 'logo')
@@ -35,10 +16,6 @@
               </a>
             </div>
             <div class="d-flex align-items-center smallScr">
-              <!-- <div class="m-0 cartIcon" @click="openCart = !openCart">
-                <span>{{ $store.state.cartItems.length }}</span>
-                <i class="fa-regular fa-cart-plus"></i>
-              </div> -->
               <div v-if="$store.state.user" class="logout" @click="logout">
                 <i class="fa-regular fa-right-from-bracket"></i>
               </div>
@@ -86,11 +63,6 @@
             </div>
           </b-collapse>
           <div class="d-flex align-items-center largeScr">
-            <!-- CART ICON -->
-            <!-- <div class="m-0 cartIcon" @click="openCart = !openCart">
-              <span>{{ $store.state.cartItems.length }}</span>
-              <i class="fa-regular fa-cart-plus"></i>
-            </div> -->
             <button @click="$router.push('/register-form')">Register Now</button>
 
             <div v-if="$store.state.user" class="logout" @click="logout">
@@ -108,14 +80,12 @@
 import AppTopBar from "./AppTopBar.vue";
 import AppMidBar from "./AppMidBar.vue";
 import DropdownMenu from "@innologica/vue-dropdown-menu";
-import cart from "../cart/cart.vue";
 export default {
   name: "AppHeader",
   components: {
     AppTopBar,
     AppMidBar,
     DropdownMenu,
-    cart,
   },
   data() {
     return {
@@ -501,7 +471,7 @@ export default {
   }
 }
 
-.dropdownBtn {
+.dropdown {
   margin: 0 !important;
   padding: 0 !important;
 
@@ -522,6 +492,7 @@ export default {
   .btn {
     padding: 0 !important;
   }
+
 
   .dropdown-menu {
     top: 40px !important;

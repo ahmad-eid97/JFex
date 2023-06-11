@@ -1,28 +1,24 @@
 <template>
-  <div class="wrapper" :class="
-    !$store.state.showPopup ||
-      !$store.state.websiteSettings.find((one) => one.key === 'popup_status') ||
-      !$store.state.websiteSettings.find((one) => one.key === 'popup_status')
-        .plain_value
-      ? 'hide'
-      : ''
-  ">
+  <div class="wrapper" :class="!$store.state.showPopup ||
+    !$store.state.websiteSettings.find((one) => one.key === 'popup_status') ||
+    !$store.state.websiteSettings.find((one) => one.key === 'popup_status')
+      .plain_value
+    ? 'hide'
+    : ''
+    ">
     <div class="popup" :class="$i18n.locale === 'ar' ? 'arabic' : ''">
       <i class="fa-regular fa-xmark close" @click="closePopup"></i>
-      <a :href="
-        $store.state.websiteSettings.find((one) => one.key === 'popup_link')
-          .plain_value
-      " target="_blank">
-        <img :src="
-          $store.state.websiteSettings.find(
-            (one) => one.key === 'popup_image'
-          ).plain_value
-        " alt="image" />
+      <a :href="$store.state.websiteSettings.find((one) => one.key === 'popup_link')
+        .plain_value
+        " target="_blank">
+        <img :src="$store.state.websiteSettings.find(
+          (one) => one.key === 'popup_image'
+        ).plain_value
+          " alt="image" />
       </a>
-      <a :href="
-        $store.state.websiteSettings.find((one) => one.key === 'popup_link')
-          .plain_value
-      " target="_blank">
+      <a :href="$store.state.websiteSettings.find((one) => one.key === 'popup_link')
+        .plain_value
+        " target="_blank">
         <h4>
           {{
             $store.state.websiteSettings.find(
@@ -31,10 +27,9 @@
           }}
         </h4>
       </a>
-      <a :href="
-        $store.state.websiteSettings.find((one) => one.key === 'popup_link')
-          .plain_value
-      " target="_blank">
+      <a :href="$store.state.websiteSettings.find((one) => one.key === 'popup_link')
+            .plain_value
+          " target="_blank">
         <p>
           {{
             $store.state.websiteSettings.find(
@@ -168,6 +163,7 @@ export default {
   img {
     width: 200px;
     max-height: 170px;
+    margin-bottom: 10px;
   }
 
   h4,

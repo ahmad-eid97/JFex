@@ -4,13 +4,9 @@
       <div class="row align-items-center">
         <div class="col-lg-6">
           <div class="about-play">
-            <img
-              :src="
-                experienceSection.find((one) => one.key === 'experience_image')
-                  .value
-              "
-              alt="About Images"
-            />
+            <img :src="experienceSection.find((one) => one.key === 'experience_image')
+              .value
+              " alt="About Images" />
             <div class="about-play-content">
               <span>Watch Our Intro Video</span>
               <h2>
@@ -21,11 +17,7 @@
                 }}
               </h2>
               <div class="play-on-area">
-                <CoolLightBox
-                  :items="media"
-                  :index="index"
-                  @close="index = null"
-                >
+                <CoolLightBox :items="media" :index="index" @close="index = null">
                 </CoolLightBox>
                 <a class="play-on popup-btn" @click="openGallery()">
                   <i class="fa-solid fa-play"></i>
@@ -59,60 +51,46 @@
             </div>
             <div class="row">
               <div class="col-lg-6 col-md-6">
-                <ul
-                  class="about-list"
-                  v-if="
-                    experienceSection.find(
+                <ul class="about-list" v-if="experienceSection.find(
                       (one) => one.key === 'experience_title_list'
                     ).value
-                  "
-                >
-                  <li
-                    v-for="item in experienceSection
-                      .find((one) => one.key === 'experience_title_list')
-                      .value.split(',')
-                      .slice(
-                        0,
-                        Math.ceil(
-                          experienceSection
-                            .find((one) => one.key === 'experience_title_list')
-                            .value.split(',').length / 2
-                        )
-                      )"
-                    :key="item"
-                  >
+                    ">
+                  <li v-for="item in experienceSection
+                    .find((one) => one.key === 'experience_title_list')
+                    .value.split(',')
+                    .slice(
+                      0,
+                      Math.ceil(
+                        experienceSection
+                          .find((one) => one.key === 'experience_title_list')
+                          .value.split(',').length / 2
+                      )
+                    )" :key="item">
                     <i class="fa-solid fa-circle-check"></i>
                     <span>{{ item }}</span>
                   </li>
                 </ul>
               </div>
               <div class="col-lg-6 col-md-6">
-                <ul
-                  class="about-list about-list-2"
-                  v-if="
-                    experienceSection.find(
-                      (one) => one.key === 'experience_title_list'
-                    ).value
-                  "
-                >
-                  <li
-                    v-for="item in experienceSection
-                      .find((one) => one.key === 'experience_title_list')
-                      .value.split(',')
-                      .slice(
-                        Math.ceil(
-                          experienceSection
-                            .find((one) => one.key === 'experience_title_list')
-                            .value.split(',').length / 2
-                        ),
-                        Math.ceil(
-                          experienceSection
-                            .find((one) => one.key === 'experience_title_list')
-                            .value.split(',').length
-                        )
-                      )"
-                    :key="item"
-                  >
+                <ul class="about-list about-list-2" v-if="experienceSection.find(
+                  (one) => one.key === 'experience_title_list'
+                ).value
+                  ">
+                  <li v-for="item in experienceSection
+                    .find((one) => one.key === 'experience_title_list')
+                    .value.split(',')
+                    .slice(
+                      Math.ceil(
+                        experienceSection
+                          .find((one) => one.key === 'experience_title_list')
+                          .value.split(',').length / 2
+                      ),
+                      Math.ceil(
+                        experienceSection
+                          .find((one) => one.key === 'experience_title_list')
+                          .value.split(',').length
+                      )
+                    )" :key="item">
                     <i class="fa-solid fa-circle-check"></i>
                     <span>{{ item }}</span>
                   </li>
@@ -129,15 +107,10 @@
         </div>
       </div>
     </div>
-    <ModalVideo
-      channel="youtube"
-      :videoId="
-        experienceSection
-          .find((one) => one.key === 'experience_url_video')
-          .value.split('=')[1]
-      "
-      :isOpen.sync="videoIsOpen"
-    />
+    <ModalVideo channel="youtube" :videoId="experienceSection
+      .find((one) => one.key === 'experience_url_video')
+      .value.split('embed/')[1]
+      " :isOpen.sync="videoIsOpen" />
   </div>
 </template>
 
@@ -158,7 +131,7 @@ export default {
           thumb: this.experienceSection.find(
             (one) => one.key === "experience_url_video"
           ).value,
-          id: "tUP5S4YdEJo",
+          id: "haY3ShqpVME",
         },
       ],
       videoIsOpen: false,
@@ -178,13 +151,17 @@ export default {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+
 .about-play {
   position: relative;
   border-radius: 30px;
 }
+
 .about-play img {
   border-radius: 30px;
+  min-height: 400px;
 }
+
 .about-play .about-play-content {
   position: absolute;
   z-index: 1;
@@ -197,6 +174,7 @@ export default {
   padding: 100px 40px 70px 25px;
   text-align: start;
 }
+
 .about-play .about-play-content::before {
   content: "";
   position: absolute;
@@ -209,21 +187,25 @@ export default {
   border-bottom-left-radius: 30px;
   border-top-right-radius: 70%;
 }
+
 .about-play .about-play-content span {
   color: #fff;
 }
+
 .about-play .about-play-content h2 {
   color: #fff;
   font-size: 35px;
   max-width: 300px;
   margin-bottom: 0;
 }
+
 .about-play .about-play-content .play-on-area {
   position: absolute;
   z-index: 1;
   bottom: 175px;
   left: 200px;
 }
+
 .about-play .about-play-content .play-on-area .play-on {
   width: 80px;
   height: 80px;
@@ -237,18 +219,21 @@ export default {
   align-items: center;
   cursor: pointer;
 }
+
 .about-area .section-title {
   margin: 0 auto;
   padding: 0;
   position: relative;
   text-align: start;
 }
+
 .about-area .section-title span {
   margin-bottom: 8px;
   font-weight: 600;
   display: block;
   color: var(--main-color);
 }
+
 .about-area .section-title h2 {
   color: #212529;
   font-size: 35px;
@@ -271,12 +256,14 @@ export default {
   margin-bottom: 20px;
   text-align: unset !important;
 }
+
 .about-area .about-content .about-list {
   list-style: none;
   margin: 20px 0 0;
   padding: 0;
   text-align: start !important;
 }
+
 .about-area .about-content .about-list li {
   display: block;
   color: #212529;
@@ -289,15 +276,18 @@ export default {
   transition: 0.5s;
   font-size: 15px;
 }
+
 .about-area .about-content .about-list li i {
   font-size: 20px;
   color: var(--main-color);
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
+
 .about-area .about-content .about-list li span {
   padding: 0 10px;
 }
+
 .about-area .about-content .about-content-text {
   margin-top: 20px;
   margin-bottom: 0;

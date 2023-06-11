@@ -23,7 +23,7 @@ export default {
       })
 
     return {
-      sponsors: SPONSORS.data.data.find(one => one.key === 'sponsors_list' || one.key === 'قائمة الرعاة').value
+      sponsors: SPONSORS.data.data
     }
   },
 }
