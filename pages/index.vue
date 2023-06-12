@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <!-- Slick Section Start -->
-    <!-- <app-home-slider :slides="slides"></app-home-slider> -->
 
     <Banner :banner="banner" />
 
@@ -10,10 +8,6 @@
     <Benefits :benefits="benefits" />
 
     <Future :future="future" />
-
-    <!-- <div v-if="$store.state.sectionsStatus.features">
-      <app-home-blogs :blogs="blogs.slice(0, 1)" :features="features.data" :testimonials="testimonials"></app-home-blogs>
-    </div> -->
 
     <Awards :awards="awards" />
 
@@ -25,36 +19,6 @@
 
     <Contact />
 
-    <!-- <div v-if="$store.state.sectionsStatus['banner-top']">
-      <app-home-contact-divider :bannerTop="bannerTop.data"></app-home-contact-divider>
-    </div> -->
-
-    <!-- WHY WORK WITH US Start -->
-    <!-- <div v-if="$store.state.sectionsStatus.features">
-      <app-home-why :features="features.data"></app-home-why>
-    </div> -->
-    <!-- WHY WORK WITH US End -->
-
-    <!-- SERVICES WE PROVIDESection Start -->
-    <!-- <app-home-services :services="services"></app-home-services> -->
-    <!-- SERVICES WE PROVIDE Section End -->
-
-    <!-- testimonials Section Start -->
-    <!-- <app-home-testimonials :testimonials="testimonials"></app-home-testimonials> -->
-    <!-- testimonials Section End -->
-
-    <!-- <app-home-news :blogs="blogs"></app-home-news> -->
-
-    <!-- <div v-if="$store.state.sectionsStatus.activities">
-      <app-home-activities :activities="activities.data" />
-    </div> -->
-
-    <!-- <div v-if="$store.state.sectionsStatus.steps">
-      <app-home-steps :steps="steps.data" />
-    </div> -->
-
-    <!-- Services Section Start -->
-    <!-- <app-home-services-offers></app-home-services-offers> -->
     <SocialChat :attendants="attendants">
       <p slot="header">Click one of our representatives below to chat.</p>
       <template v-slot:button="{ open }">
@@ -86,6 +50,7 @@ import Awards from "../components/home/Awards.vue";
 import Future from "../components/home/Future.vue";
 import Banner from "../components/home/Banner.vue";
 // @ is an alias to /src
+import templates from '../config.json';
 
 export default {
   name: "Home",
@@ -172,12 +137,6 @@ export default {
       },
     });
 
-    // const slides = await $axios.get("/sliders", {
-    //   headers: {
-    //     "Accept-Language": app.i18n.locale,
-    //   },
-    // });
-
     const partners = await $axios.get("/partners");
 
     const benefits = await $axios.get("/sections/benefits", {
@@ -211,32 +170,7 @@ export default {
         },
       })
 
-    // const bannerTop = await $axios.get("/sections/banner-top", {
-    //   headers: {
-    //     "Accept-Language": app.i18n.locale,
-    //   },
-    // });
-
-    // const services = await $axios.get("/services");
-
-    // const testimonials = await $axios.get("/testimonials");
-
-    // const blogs = await $axios.get("/blogs?latest=1");
-
-    // const activities = await $axios.get("/sections/activities", {
-    //   headers: {
-    //     "Accept-Language": app.i18n.locale,
-    //   },
-    // });
-
-    // const steps = await $axios.get("/sections/steps", {
-    //   headers: {
-    //     "Accept-Language": app.i18n.locale,
-    //   },
-    // });
-
     return {
-      // slides: slides.data.data.sliders,
       banner: banner.data.data,
       partners: partners.data.data.partners,
       benefits: benefits.data.data,
@@ -244,15 +178,11 @@ export default {
       awards: awards.data.data,
       features: features.data,
       sponsors: sponsors.data.data
-      // bannerTop: bannerTop.data,
-      // services: services.data.data.services,
-      // testimonials: testimonials.data.data.testimonials,
-      // blogs: blogs.data.data.blogs.slice(0, 5),
-      // activities: activities.data,
-      // steps: steps.data,
     };
   },
-  mounted() { },
+  mounted() {
+    console.log(templates.template16)
+  },
 };
 </script>
 

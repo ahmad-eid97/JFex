@@ -50,8 +50,9 @@
                     <label for="">Country <span>*</span></label>
                     <div class="form-group">
                       <select name="" id="" v-model="country" :class="emptyError && !country ? 'errorInput' : ''">
-                        <option value="Egypt">Egypt</option>
-                        <option value="Palastine">Palastine</option>
+                        <option v-for="country in $i18n.locale === 'ar' ? countries.arCountries : countries.countries"
+                          :key="country" value="country">{{ country }}
+                        </option>
                       </select>
                       <span v-if="emptyError && !country" class="errorHint">Field is required</span>
                     </div>
@@ -74,8 +75,8 @@
                     <label for="">Strategic Partner</label>
                     <div class="form-group">
                       <select name="" id="" v-model="partner">
-                        <option value="">partner one</option>
-                        <option value="">partner two</option>
+                        <option v-for="partner in partners" :key="partner.id" :value="partner.title">{{ partner.title }}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -104,11 +105,14 @@
 
 <script>
 import * as EmailValidator from "email-validator";
+import countries from '../../countries.json';
 
 export default {
   name: "AppRegisterForm",
+  props: ['partners'],
   data() {
     return {
+      countries: countries,
       firstname: "",
       lastname: "",
       phone: "",
