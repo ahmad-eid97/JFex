@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import AppRegisterForm from "../../components/Register/AppRegisterForm.vue";
 import AppRegisterHeading from "../../components/Register/AppRegisterHeading.vue";
+import AppRegisterForm from "../../components/Register/AppRegisterForm.vue";
 export default {
   middleware: ["guest"],
   name: "Register",

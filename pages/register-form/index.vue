@@ -7,7 +7,7 @@
 
 <script>
 import AppRegisterHeading from "../../components/Register/AppRegisterHeading.vue";
-import AppRegisterForm from "../../components/register-form/RegisterForm.vue";
+import AppRegisterForm from "../../components/Register-Form/RegisterForm.vue";
 export default {
   name: "Register-Form",
   components: {
