@@ -66,6 +66,19 @@ export default {
     "cookie-universal-nuxt",
     "@nuxtjs/auth-next",
   ],
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        options: {
+          // ...
+        },
+      },
+    ],
+  },
+
   i18n: {
     locales: [
       {
