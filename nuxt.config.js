@@ -67,18 +67,6 @@ export default {
     "@nuxtjs/auth-next",
   ],
 
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        options: {
-          // ...
-        },
-      },
-    ],
-  },
-
   i18n: {
     locales: [
       {
@@ -109,6 +97,7 @@ export default {
     // baseURL: "https://demo16.laravada.com/api/v1",
     baseURL: config.base_url,
   },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     loaders: {
