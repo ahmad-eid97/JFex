@@ -49,6 +49,6 @@
     "@nuxtjs/style-resources": "^1.2.1",
     "node-sass": "^7.0.1",
     "sass-loader": "^10.1.1",
-    "webpack": "^4.45.0"
+    "webpack": "^4.46.0"
   }
 }
