@@ -404,8 +404,4 @@ export default {
   font-weight: bold;
   border: none;
 }
-
-button {
-  margin-bottom: 10px;
-}
 </style>

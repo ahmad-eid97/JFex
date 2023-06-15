@@ -10,13 +10,13 @@
               <div class="footer-item footer-widget-one">
                 <img class="footer-logo mb-25" :src="$store.state.websiteSettings.find(
                   (one) => one.key === 'logo'
-                ).plain_value
+                )?.plain_value
                   " alt="logoImage" />
                 <p>
                   {{
                     $store.state.websiteSettings.find(
                       (one) => one.key === "description"
-                    ).plain_value
+                    )?.plain_value
                   }}
                 </p>
                 <hr />
@@ -34,7 +34,7 @@
                     {{
                       $store.state.websiteSettings.find(
                         (one) => one.key === "contact_phone"
-                      ).plain_value
+                      )?.plain_value
                     }}
                   </li>
                   <li>
@@ -43,7 +43,7 @@
                     {{
                       $store.state.websiteSettings.find(
                         (one) => one.key === "contact_email"
-                      ).plain_value
+                      )?.plain_value
                     }}
                   </li>
                   <li>
@@ -51,7 +51,7 @@
                     {{
                       $store.state.websiteSettings.find(
                         (one) => one.key === "contact_address"
-                      ).plain_value
+                      )?.plain_value
                     }}
                   </li>
                 </ul>

@@ -25,7 +25,7 @@
                     <a href="tel:+1(212)-255-5511">{{
                       $store.state.websiteSettings.find(
                         (one) => one.key === "contact_phone"
-                      ).plain_value
+                      )?.plain_value
                     }}</a>
                   </div>
                 </div>
@@ -40,7 +40,7 @@
                     <a href="#">{{
                       $store.state.websiteSettings.find(
                         (one) => one.key === "contact_address"
-                      ).plain_value
+                      )?.plain_value
                     }}</a>
                   </div>
                 </div>
@@ -55,7 +55,7 @@
                     <a href="mailto:hello@techex.com">{{
                       $store.state.websiteSettings.find(
                         (one) => one.key === "contact_email"
-                      ).plain_value
+                      )?.plain_value
                     }}</a>
                   </div>
                 </div>
@@ -70,107 +70,52 @@
                 <div class="col-lg-6">
                   <div class="form-group has-error">
                     <label>Your Name <span>*</span></label>
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      class="form-control"
-                      :class="!name && emptyFields ? 'error' : ''"
-                      required=""
-                      data-error="Please Enter Your Name"
-                      placeholder="Name"
-                      v-model="name"
-                    />
+                    <input type="text" name="name" id="name" class="form-control"
+                      :class="!name && emptyFields ? 'error' : ''" required="" data-error="Please Enter Your Name"
+                      placeholder="Name" v-model="name" />
 
-                    <span v-if="!name && emptyFields" class="error"
-                      >This field can't be empty</span
-                    >
+                    <span v-if="!name && emptyFields" class="error">This field can't be empty</span>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label>Your Email <span>*</span></label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      class="form-control"
-                      :class="
-                        (!email && emptyFields) || !validEmail ? 'error' : ''
-                      "
-                      required=""
-                      data-error="Please Enter Your Email"
-                      placeholder="Email"
-                      v-model="email"
-                    />
+                    <input type="email" name="email" id="email" class="form-control" :class="(!email && emptyFields) || !validEmail ? 'error' : ''
+                      " required="" data-error="Please Enter Your Email" placeholder="Email" v-model="email" />
 
-                    <span v-if="!email && emptyFields" class="error"
-                      >This field can't be empty</span
-                    >
-                    <span v-if="!validEmail" class="error"
-                      >Please enter valid email</span
-                    >
+                    <span v-if="!email && emptyFields" class="error">This field can't be empty</span>
+                    <span v-if="!validEmail" class="error">Please enter valid email</span>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label>Phone Number <span>*</span></label>
-                    <input
-                      type="number"
-                      name="phone_number"
-                      id="phone_number"
-                      required=""
-                      data-error="Please Enter Your number"
-                      class="form-control"
-                      :class="!phone_number && emptyFields ? 'error' : ''"
-                      placeholder="Phone Number"
-                      v-model="phone_number"
-                    />
+                    <input type="number" name="phone_number" id="phone_number" required=""
+                      data-error="Please Enter Your number" class="form-control"
+                      :class="!phone_number && emptyFields ? 'error' : ''" placeholder="Phone Number"
+                      v-model="phone_number" />
 
-                    <span v-if="!phone_number && emptyFields" class="error"
-                      >This field can't be empty</span
-                    >
+                    <span v-if="!phone_number && emptyFields" class="error">This field can't be empty</span>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label>Your Subject <span>*</span></label>
-                    <input
-                      type="text"
-                      name="msg_subject"
-                      id="msg_subject"
-                      class="form-control"
-                      required=""
-                      data-error="Please Enter Your Subject"
-                      :class="!form_title && emptyFields ? 'error' : ''"
-                      placeholder="Your Subject"
-                      v-model="form_title"
-                    />
+                    <input type="text" name="msg_subject" id="msg_subject" class="form-control" required=""
+                      data-error="Please Enter Your Subject" :class="!form_title && emptyFields ? 'error' : ''"
+                      placeholder="Your Subject" v-model="form_title" />
 
-                    <span v-if="!form_title && emptyFields" class="error"
-                      >This field can't be empty</span
-                    >
+                    <span v-if="!form_title && emptyFields" class="error">This field can't be empty</span>
                   </div>
                 </div>
                 <div class="col-lg-12 col-md-12">
                   <div class="form-group">
                     <label>Your Message <span>*</span></label>
-                    <textarea
-                      name="message"
-                      class="form-control"
-                      id="message"
-                      cols="30"
-                      rows="8"
-                      required=""
-                      data-error="Write your message"
-                      placeholder="Your Message"
-                      v-model="form_subtitle"
-                      :class="!form_subtitle && emptyFields ? 'error' : ''"
-                    ></textarea>
+                    <textarea name="message" class="form-control" id="message" cols="30" rows="8" required=""
+                      data-error="Write your message" placeholder="Your Message" v-model="form_subtitle"
+                      :class="!form_subtitle && emptyFields ? 'error' : ''"></textarea>
 
-                    <span v-if="!form_subtitle && emptyFields" class="error"
-                      >This field can't be empty</span
-                    >
+                    <span v-if="!form_subtitle && emptyFields" class="error">This field can't be empty</span>
 
                     <div class="help-block with-errors"></div>
                   </div>
@@ -186,12 +131,8 @@
                   </div>
                 </div>
                 <div class="col-lg-12 col-md-12 text-center">
-                  <button
-                    type="button"
-                    class="default-btn btn-bg-two border-radius-50 disabled"
-                    style="pointer-events: all; cursor: pointer"
-                    @click="sendMessage"
-                  >
+                  <button type="button" class="default-btn btn-bg-two border-radius-50 disabled"
+                    style="pointer-events: all; cursor: pointer" @click="sendMessage">
                     Send Message <i class="bx bx-chevron-right"></i>
                   </button>
                   <div id="msgSubmit" class="h3 text-center hidden"></div>
@@ -286,6 +227,7 @@ export default {
   color: #212529;
   margin-bottom: 0;
 }
+
 .contact-info::before {
   content: "";
   position: absolute;
@@ -301,6 +243,7 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
 }
+
 .contact-form-area .contact-info {
   margin-bottom: 30px;
   background-color: var(--secondary-color);
@@ -309,31 +252,37 @@ export default {
   position: relative;
   z-index: 1;
 }
+
 .contact-form-area .contact-info span {
   color: #fff;
   display: block;
   margin-bottom: 5px;
 }
+
 .contact-form-area .contact-info h2 {
   color: #fff;
   font-size: 26px;
   margin-bottom: 15px;
 }
+
 .contact-form-area .contact-info p {
   color: #fff;
   margin-bottom: 20px;
 }
+
 .contact-form-area .contact-info ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .contact-form-area .contact-info ul li {
   display: block;
   margin-bottom: 30px;
   /* padding-left: 60px; */
   position: relative;
 }
+
 .contact-info ul li .content {
   width: 100%;
   display: flex;
@@ -344,6 +293,7 @@ export default {
 .contact-info ul li .content .contentInnner {
   margin: 0 10px;
 }
+
 .contact-info ul li .content .icon {
   width: 45px;
   height: 45px;
@@ -359,27 +309,32 @@ export default {
   left: 0;
   top: 0; */
 }
+
 .contact-info ul li .content h3 {
   font-size: 18px;
   margin-bottom: 10px;
   color: #fff;
   display: block;
 }
+
 .contact-form-area .contact-info ul li .content a {
   color: #fff;
   display: block;
   font-weight: 400;
   font-size: 15px;
 }
+
 .contact-form .form-group label {
   color: #212529;
   font-size: 15px;
   margin-bottom: 0px;
   font-weight: 500;
 }
+
 .contact-form .form-group label span {
   color: var(--main-color);
 }
+
 .contact-form .form-group .form-control {
   height: 50px;
   color: #212529;
@@ -391,14 +346,17 @@ export default {
   border-radius: 0;
   font-weight: 500;
 }
+
 .contact-form .form-group {
   margin-bottom: 20px;
   position: relative;
 }
+
 .contact-form .agree-label {
   margin-bottom: 15px;
   position: relative;
 }
+
 .contact-form .agree-label input#chb1 {
   /* position: absolute;
   top: 5px;
@@ -406,11 +364,13 @@ export default {
   width: auto;
   height: auto;
 }
+
 .contact-form .agree-label label {
   font-weight: 500;
   color: #252525;
   margin-left: 25px;
 }
+
 .contact-form .agree-label label a,
 .contact-form a {
   color: var(--main-color);

@@ -49,8 +49,6 @@ import Contact from "../components/home/Contact.vue";
 import Awards from "../components/home/Awards.vue";
 import Future from "../components/home/Future.vue";
 import Banner from "../components/home/Banner.vue";
-// @ is an alias to /src
-import templates from '../config.json';
 
 export default {
   name: "Home",
@@ -66,7 +64,7 @@ export default {
           )
             ? this.$store.state.websiteSettings.find(
               (one) => one.key === "chat_widget_whatsapp_label"
-            ).plain_value
+            )?.plain_value
             : "Laravada",
 
           number: this.$store.state.websiteSettings.find(
@@ -74,7 +72,7 @@ export default {
           )
             ? this.$store.state.websiteSettings.find(
               (one) => one.key === "chat_widget_whatsapp_number"
-            ).plain_value
+            )?.plain_value
             : "11111111111",
 
           avatar: {
@@ -91,7 +89,7 @@ export default {
           )
             ? this.$store.state.websiteSettings.find(
               (one) => one.key === "chat_widget_messenger_label"
-            ).plain_value
+            )?.plain_value
             : "Laravada Facebook",
 
           id: this.$store.state.websiteSettings.find(
@@ -99,7 +97,7 @@ export default {
           )
             ? this.$store.state.websiteSettings.find(
               (one) => one.key === "chat_widget_messenger_id"
-            ).plain_value
+            )?.plain_value
             : "111111111111",
 
           avatar: {
@@ -179,9 +177,6 @@ export default {
       features: features.data,
       sponsors: sponsors.data.data
     };
-  },
-  mounted() {
-    console.log(templates.template16)
   },
 };
 </script>

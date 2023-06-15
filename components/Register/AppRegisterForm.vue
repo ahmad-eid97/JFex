@@ -15,66 +15,32 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        :class="emptyError && !name ? 'errorInput' : ''"
-                        required=""
-                        data-error="Please enter your Username"
-                        placeholder="Enter Your Username"
-                        v-model="name"
-                      />
-                      <span v-if="emptyError && !name" class="errorHint"
-                        >Field is required</span
-                      >
+                      <input type="text" class="form-control" :class="emptyError && !name ? 'errorInput' : ''" required=""
+                        data-error="Please enter your Username" placeholder="Enter Your Username" v-model="name" />
+                      <span v-if="emptyError && !name" class="errorHint">Field is required</span>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group">
-                      <input
-                        type="email"
-                        class="form-control"
-                        :class="
-                          (emptyError && !email) || !validEmail
-                            ? 'errorInput'
-                            : ''
-                        "
-                        required=""
-                        data-error="Please enter your Username or Email"
-                        placeholder="Enter Your Email"
-                        v-model="email"
-                        @change="typingEmail"
-                      />
-                      <span v-if="emptyError && !email" class="errorHint"
-                        >Field is required</span
-                      >
-                      <span v-if="!validEmail && email" class="errorHint"
-                        >Email is invalid</span
-                      >
+                      <input type="email" class="form-control" :class="(emptyError && !email) || !validEmail
+                        ? 'errorInput'
+                        : ''
+                        " required="" data-error="Please enter your Username or Email" placeholder="Enter Your Email"
+                        v-model="email" @change="typingEmail" />
+                      <span v-if="emptyError && !email" class="errorHint">Field is required</span>
+                      <span v-if="!validEmail && email" class="errorHint">Email is invalid</span>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group">
-                      <input
-                        class="form-control"
-                        :class="emptyError && !password ? 'errorInput' : ''"
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        v-model="password"
-                      />
-                      <span v-if="emptyError && !password" class="errorHint"
-                        >Field is required</span
-                      >
+                      <input class="form-control" :class="emptyError && !password ? 'errorInput' : ''" type="password"
+                        name="password" placeholder="Password" v-model="password" />
+                      <span v-if="emptyError && !password" class="errorHint">Field is required</span>
                     </div>
                   </div>
 
                   <div class="col-lg-12">
-                    <button
-                      type="button"
-                      class="default-btn btn-bg-two"
-                      @click="register"
-                    >
+                    <button type="button" class="default-btn btn-bg-two" @click="register">
                       Register Now
                     </button>
                   </div>
@@ -190,11 +156,13 @@ export default {
   font-size: 26px;
   line-height: 1;
 }
+
 .contact-form-area .section-title .seprator img {
   width: 70px;
   margin-top: 5px;
   margin-bottom: 20px;
 }
+
 .contact-form-area h2 {
   font-size: 35px;
   font-weight: 600;
@@ -203,6 +171,7 @@ export default {
   color: var(--main-color);
   margin-bottom: 0;
 }
+
 .contact-info::before {
   content: "";
   position: absolute;
@@ -218,44 +187,49 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
 }
+
 .contact-form-area .contact-info {
   margin-bottom: 30px;
   background: rgb(0, 0, 0);
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.9205882181974352) 0%,
-    rgba(48, 164, 108, 1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(0, 0, 0, 0.9205882181974352) 0%,
+      rgba(48, 164, 108, 1) 100%);
   padding: 52px 35px 22px;
   border-radius: 0px;
   position: relative;
   z-index: 1;
 }
+
 .contact-form-area .contact-info span {
   color: var(--main-color);
   display: block;
   margin-bottom: 5px;
 }
+
 .contact-form-area .contact-info h2 {
   color: #fff;
   font-size: 26px;
   margin-bottom: 15px;
 }
+
 .contact-form-area .contact-info p {
   color: #fff;
   margin-bottom: 20px;
 }
+
 .contact-form-area .contact-info ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .contact-form-area .contact-info ul li {
   display: block;
   margin-bottom: 30px;
   padding-left: 60px;
   position: relative;
 }
+
 .contact-info ul li .content .icon {
   width: 45px;
   height: 45px;
@@ -271,27 +245,32 @@ export default {
   left: 0;
   top: 0;
 }
+
 .contact-info ul li .content h3 {
   font-size: 18px;
   margin-bottom: 10px;
   color: #fff;
   display: block;
 }
+
 .contact-form-area .contact-info ul li .content a {
   color: #fff;
   display: block;
   font-weight: 400;
   font-size: 15px;
 }
+
 .contact-form .form-group label {
   color: var(--main-color);
   font-size: 15px;
   margin-bottom: 15px;
   font-weight: 500;
 }
+
 .contact-form .form-group label span {
   color: var(--main-color);
 }
+
 .contact-form .form-group .form-control {
   height: 50px;
   color: var(--main-color);
@@ -303,14 +282,17 @@ export default {
   border-radius: 0;
   font-weight: 500;
 }
+
 .contact-form .form-group {
   margin-bottom: 20px;
   position: relative;
 }
+
 .contact-form .agree-label {
   margin-bottom: 15px;
   position: relative;
 }
+
 .contact-form .agree-label input#chb1 {
   position: absolute;
   top: 5px;
@@ -318,18 +300,22 @@ export default {
   width: auto;
   height: auto;
 }
+
 .contact-form .agree-label label {
   font-weight: 500;
   color: #252525;
   margin-left: 25px;
 }
+
 .contact-form .agree-label label a,
 .contact-form a {
   color: var(--main-color);
 }
+
 .errorHint {
   color: #ff7675;
 }
+
 .errorInput {
   border-color: #ff7675 !important;
 }
@@ -342,8 +328,5 @@ export default {
   padding: 10px 16px;
   font-weight: bold;
   border: none;
-}
-button {
-  margin-bottom: 10px;
 }
 </style>

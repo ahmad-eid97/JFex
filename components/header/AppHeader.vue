@@ -10,8 +10,7 @@
           <div class="container header_container d-flex align-items-center justify-content-between">
             <div class="logo">
               <a :href="localePath('/')" class="navbar-brand justify-content-end pc-menu">
-                <img id="logo_img" :src="$store.state.websiteSettings.find((one) => one.key === 'logo')
-                  .plain_value
+                <img id="logo_img" :src="$store.state.websiteSettings.find((one) => one.key === 'logo')?.plain_value
                   " alt="logoImage" />
               </a>
             </div>

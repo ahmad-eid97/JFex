@@ -1,11 +1,7 @@
-import config from './config.json';
-
 export default {
-  // Target: https://go.nuxtjs.dev/config-target
   ssr: true,
   target: "server",
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "JFex",
     htmlAttrs: {
@@ -31,10 +27,8 @@ export default {
     ],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     "~plugins/bootstrap-vue.js",
     "~plugins/coolLightbox.js",
@@ -47,17 +41,14 @@ export default {
     "~plugins/socialChat.js",
   ],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [],
 
   styleResources: {
     scss: ["./static/css/vars/mixins.scss"],
   },
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "nuxt-i18n",
     "bootstrap-vue/nuxt",
@@ -78,7 +69,6 @@ export default {
         file: "ar.json",
       },
     ],
-    // locales: ['en', 'ar'],
     defaultLocale: "en",
     vueI18n: {
       fallbackLocale: "en",
@@ -93,12 +83,9 @@ export default {
     },
   },
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    // baseURL: "https://demo16.laravada.com/api/v1",
-    baseURL: config.base_url,
+    baseURL: process.env.BASE_URL,
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     loaders: {
       scss: {

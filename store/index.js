@@ -49,34 +49,34 @@ export default () => {
       async nuxtServerInit({ commit }, { req, redirect }) {
         if (process.server) {
           // GET WEBSITE MAIN SETTINGS
-          const SETTINGS = await this.$axios.get("/settings");
-          commit("getWebsiteSettings", SETTINGS.data.data);
+          // const SETTINGS = await this.$axios.get("/settings");
+          // commit("getWebsiteSettings", SETTINGS.data.data);
 
           // GET FOOTER LINKS
-          const FOOTER_DATA = await this.$axios.get("/footer/1");
-          commit("getFooterData", FOOTER_DATA.data.data);
+          // const FOOTER_DATA = await this.$axios.get("/footer/1");
+          // commit("getFooterData", FOOTER_DATA.data.data);
 
-          const USER_DATA = await this.$cookies.get("cms-user");
-          commit("setUserData", USER_DATA);
+          // const USER_DATA = await this.$cookies.get("cms-user");
+          // commit("setUserData", USER_DATA);
 
-          const TOP_MENU = await this.$axios.get("/menus");
-          commit("getTopMenu", TOP_MENU.data.data);
+          // const TOP_MENU = await this.$axios.get("/menus");
+          // commit("getTopMenu", TOP_MENU.data.data);
 
-          const SOCIAL_LINKS = await this.$axios.get(
-            "/setting/all/social_media"
-          );
-          commit("getFooterSocialData", SOCIAL_LINKS.data.data);
+          // const SOCIAL_LINKS = await this.$axios.get(
+          //   "/setting/all/social_media"
+          // );
+          // commit("getFooterSocialData", SOCIAL_LINKS.data.data);
 
-          const PAGES = await this.$axios.get("/pages");
-          commit("getFooterPages", PAGES.data.data.pages);
+          // const PAGES = await this.$axios.get("/pages");
+          // commit("getFooterPages", PAGES.data.data.pages);
 
-          const USEFUL_LINKS = await this.$axios.get("/footer/useful-links");
-          commit("getFooterUsefulLinks", USEFUL_LINKS.data.data.data);
+          // const USEFUL_LINKS = await this.$axios.get("/footer/useful-links");
+          // commit("getFooterUsefulLinks", USEFUL_LINKS.data.data.data);
 
-          const SECTIONS_STATUS = await this.$axios.get(
-            "/setting/all/section_status"
-          );
-          commit("getSectionsStatus", SECTIONS_STATUS.data.data);
+          // const SECTIONS_STATUS = await this.$axios.get(
+          //   "/setting/all/section_status"
+          // );
+          // commit("getSectionsStatus", SECTIONS_STATUS.data.data);
         }
       },
     },

@@ -51,6 +51,13 @@ export default {
     li {
       i {
         max-width: 20px;
+        color: var(--main-color);
+      }
+      &:hover {
+        background-color: var(--main-color);
+        i {
+          color: #000;
+        }
       }
     }
   }

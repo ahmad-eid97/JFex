@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-lg-8">
           <iframe
-            :src="`https://maps.google.com/maps?q='+${$store.state.websiteSettings.find(one => one.key === 'latitude').plain_value}+','+${$store.state.websiteSettings.find(one => one.key === 'longitude').plain_value}+'&hl=es&z=14&amp;output=embed`"></iframe>
+            :src="`https://maps.google.com/maps?q='+${$store.state.websiteSettings.find(one => one.key === 'latitude')?.plain_value}+','+${$store.state.websiteSettings.find(one => one.key === 'longitude')?.plain_value}+'&hl=es&z=14&amp;output=embed`"></iframe>
         </div>
         <div class="col-lg-4">
           <div class="contact-info">
@@ -26,7 +26,7 @@
                     <a href="tel:+1(212)-255-5511">{{
                       $store.state.websiteSettings.find(
                         (one) => one.key === "contact_phone"
-                      ).plain_value
+                      )?.plain_value
                     }}</a>
                   </div>
                 </div>
@@ -41,7 +41,7 @@
                     <a href="#">{{
                       $store.state.websiteSettings.find(
                         (one) => one.key === "contact_address"
-                      ).plain_value
+                      )?.plain_value
                     }}</a>
                   </div>
                 </div>
@@ -56,7 +56,7 @@
                     <a href="mailto:hello@techex.com">{{
                       $store.state.websiteSettings.find(
                         (one) => one.key === "contact_email"
-                      ).plain_value
+                      )?.plain_value
                     }}</a>
                   </div>
                 </div>

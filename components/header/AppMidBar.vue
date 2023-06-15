@@ -6,8 +6,7 @@
           <div class="wrapper">
             <div class="logo">
               <a :href="localePath('/')" class="navbar-brand justify-content-end pc-menu">
-                <img id="logo_img" :src="$store.state.websiteSettings.find((one) => one.key === 'logo')
-                  .plain_value
+                <img id="logo_img" :src="$store.state.websiteSettings.find((one) => one.key === 'logo')?.plain_value
                   " alt="logoImage" />
               </a>
             </div>
@@ -21,7 +20,7 @@
                         {{
                           $store.state.websiteSettings.find(
                             (one) => one.key === "contact_phone"
-                          ).plain_value
+                          )?.plain_value
                         }}
                       </h6>
                     </div>
