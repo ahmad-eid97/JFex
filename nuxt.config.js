@@ -83,7 +83,7 @@ export default {
     },
   },
   axios: {
-    baseURL: process.env.BASE_URL,
+    baseURL: "https://dev.jfex.net/api/v1",
   },
 
   build: {

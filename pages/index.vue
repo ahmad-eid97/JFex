@@ -31,17 +31,7 @@
 </template>
 
 <script>
-import AppHomeBlogs from "../components/home/AppHomeBlogs.vue";
-import AppHomeContactDivider from "../components/home/AppHomeContactDivider.vue";
 import AppHomeFeature from "../components/home/AppHomeFeature.vue";
-import AppHomeNews from "../components/home/AppHomeNews.vue";
-import AppHomeServices from "../components/home/AppHomeServices.vue";
-import AppHomeServicesOffers from "../components/home/AppHomeServicesOffers.vue";
-import AppHomeSlider from "../components/home/AppHomeSlider.vue";
-import AppHomeTestimonials from "../components/home/AppHomeTestimonials.vue";
-import AppHomeWhy from "../components/home/AppHomeWhy.vue";
-import AppHomeActivities from "../components/home/AppHomeActivities.vue";
-import AppHomeSteps from "../components/home/AppHomeSteps.vue";
 import AppHomePartners from "../components/home/AppHomePartners.vue";
 import Sponsors from "../components/home/Sponsors.vue";
 import Benefits from "../components/home/Benefits.vue";
@@ -109,17 +99,7 @@ export default {
     };
   },
   components: {
-    AppHomeSlider,
     AppHomeFeature,
-    AppHomeBlogs,
-    AppHomeContactDivider,
-    AppHomeWhy,
-    AppHomeServices,
-    AppHomeTestimonials,
-    AppHomeNews,
-    AppHomeServicesOffers,
-    AppHomeActivities,
-    AppHomeSteps,
     AppHomePartners,
     Sponsors,
     Benefits,
